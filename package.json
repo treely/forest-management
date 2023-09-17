@@ -1,8 +1,8 @@
 {
-  "name": "forest-management",
+  "name": "@treely/forest-management",
   "version": "0.1.0",
   "license": "MIT",
-  "author": "Raul Steurer",
+  "author": "Tree.ly GmbH",
   "main": "dist/index.js",
   "module": "dist/forest-management.esm.js",
   "typings": "dist/index.d.ts",
@@ -25,16 +25,23 @@
     }
   },
   "prettier": {
-    "printWidth": 80,
-    "semi": true,
+    "printWidth": 100,
     "singleQuote": true,
     "trailingComma": "es5"
   },
   "jest": {
-    "testEnvironment": "jsdom"
-  },
-  "peerDependencies": {
-    "react": ">=16"
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "./src/test/setupTests.ts"
+    ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "collectCoverageFrom": [
+      "./src/**/*.{js,jsx,ts,tsx}",
+      "!**/src/test/**",
+      "!**/src/index.ts"
+    ]
   },
   "engines": {
     "node": ">=12"
@@ -48,5 +55,28 @@
       "path": "dist/forest-management.esm.js",
       "limit": "10 KB"
     }
-  ]
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^9.0.0",
+    "@testing-library/jest-dom": "^6.1.3",
+    "@testing-library/react": "^14.0.0",
+    "@tsconfig/recommended": "^1.0.3",
+    "@tsconfig/vite-react": "^2.0.1",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "dts-cli": "^2.0.3",
+    "husky": "^8.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "size-limit": "^9.0.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "boemly": "^5.2.0"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-intl": ">=5"
+  }
 }
