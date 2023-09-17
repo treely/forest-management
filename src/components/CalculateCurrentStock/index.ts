@@ -1,0 +1,1 @@
+export { CalculateCurrentStock } from './CalculateCurrentStock';
