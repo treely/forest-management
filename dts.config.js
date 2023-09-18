@@ -4,7 +4,7 @@ const alias = require('@rollup/plugin-alias');
  * @type {import('dts-cli').DtsConfig}
  */
 module.exports = {
-  rollup(config, options) {
+  rollup(config) {
     // Replace "@/" with "src/" as the root directory
     config.plugins.push({
       plugins: [

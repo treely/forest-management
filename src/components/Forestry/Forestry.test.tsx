@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@/test/test-utils';
 import { Forestry } from '.';
 import { ForestryProps } from './Forestry';

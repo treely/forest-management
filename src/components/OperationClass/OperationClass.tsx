@@ -1,12 +1,12 @@
-import React from 'react';
-import { useMemo } from 'react';
-import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
+import { useContext, useMemo } from 'react';
+import Link from 'next/link';
 import yieldTables from '@/constants/yieldTables';
 import AreaInHectare from '@/models/AreaInHectare';
 import AreaInPercent from '@/models/AreaInPercent';
 import YieldTableEnum from '@/models/YieldTableEnum';
 import getAreaInPercent from '@/utils/getAreaInPercent';
 import getNormalStock from '@/utils/getNormalStock';
+import { IntlContext } from '../ForestManagementProvider';
 
 interface Species {
   /** Free text title of the species */
@@ -30,7 +30,7 @@ export const OperationClass: React.FC<OperationClassProps> = ({
   rotationPeriod,
   listOfSpecies,
 }: OperationClassProps) => {
-  const { formatNumber } = useIntl();
+  const { formatNumber, formatMessage } = useContext(IntlContext);
 
   const areasInPercentPerSpecies = useMemo(() => getAreaInPercent(listOfSpecies), [listOfSpecies]);
 
@@ -49,31 +49,19 @@ export const OperationClass: React.FC<OperationClassProps> = ({
 
   return (
     <>
-      <b>
-        <FormattedMessage id="components.operationClass.rotationPeriod" />
-      </b>{' '}
-      <FormattedNumber value={rotationPeriod} />
+      <b>{formatMessage({ id: 'components.operationClass.rotationPeriod' })}</b>{' '}
+      {formatNumber(rotationPeriod)}
       <table>
         <thead>
           <tr>
             <th></th>
-            <th>
-              <FormattedMessage id="components.operationClass.yieldTable" />
-            </th>
+            <th>{formatMessage({ id: 'components.operationClass.yieldTable' })}</th>
             {hasAreaInHectare && (
-              <th>
-                <FormattedMessage id="components.operationClass.areas" />
-              </th>
+              <th>{formatMessage({ id: 'components.operationClass.areas' })}</th>
             )}
-            <th>
-              <FormattedMessage id="components.operationClass.distribution" />
-            </th>
-            <th>
-              <FormattedMessage id="components.operationClass.siteProductivity" />
-            </th>
-            <th>
-              <FormattedMessage id="components.operationClass.normalStock" />
-            </th>
+            <th>{formatMessage({ id: 'components.operationClass.distribution' })}</th>
+            <th>{formatMessage({ id: 'components.operationClass.siteProductivity' })}</th>
+            <th>{formatMessage({ id: 'components.operationClass.normalStock' })}</th>
           </tr>
         </thead>
         <tbody>
@@ -81,63 +69,63 @@ export const OperationClass: React.FC<OperationClassProps> = ({
             <tr key={index}>
               <td>{species.title}</td>
               <td>
-                <a href={`/yieldTables/${species.yieldTable}`}>
+                <Link href={`/yieldTables/${species.yieldTable}`}>
                   {yieldTables[species.yieldTable].meta.title}
-                </a>
+                </Link>
               </td>
               {hasAreaInHectare && (
                 <td align="right">
-                  <FormattedMessage
-                    id="units.ha"
-                    values={{
+                  {formatMessage(
+                    {
+                      id: 'units.ha',
+                    },
+                    {
                       value: formatNumber((species as SpeciesWithAreaInHectare).areaInHectare, {
                         minimumFractionDigits: 1,
                         maximumFractionDigits: 1,
                       }),
-                    }}
-                  />
+                    }
+                  )}
                 </td>
               )}
               <td align="right">
-                <FormattedNumber
-                  value={areasInPercentPerSpecies[index].areaInPercent}
-                  style="percent"
-                  minimumFractionDigits={1}
-                  maximumFractionDigits={1}
-                />
+                {formatNumber(areasInPercentPerSpecies[index].areaInPercent, {
+                  style: 'percent',
+                  minimumFractionDigits: 1,
+                  maximumFractionDigits: 1,
+                })}
               </td>
               <td align="right">
-                <FormattedNumber
-                  value={species.siteProductivity}
-                  minimumFractionDigits={1}
-                  maximumFractionDigits={1}
-                />
+                {formatNumber(species.siteProductivity, {
+                  minimumFractionDigits: 1,
+                  maximumFractionDigits: 1,
+                })}
               </td>
               <td align="right">
-                <FormattedMessage
-                  id="units.vfmPerHa"
-                  values={{
+                {formatMessage(
+                  {
+                    id: 'units.vfmPerHa',
+                  },
+                  {
                     value: formatNumber(normalStocks[index], {
                       minimumFractionDigits: 1,
                       maximumFractionDigits: 1,
                     }),
-                  }}
-                />
+                  }
+                )}
               </td>
             </tr>
           ))}
         </tbody>
         <tfoot>
           <tr>
-            <td>
-              <FormattedMessage id="components.operationClass.total" />
-            </td>
+            <td>{formatMessage({ id: 'components.operationClass.total' })}</td>
             <td />
             {hasAreaInHectare && (
               <td align="right">
-                <FormattedMessage
-                  id="units.ha"
-                  values={{
+                {formatMessage(
+                  { id: 'units.ha' },
+                  {
                     value: formatNumber(
                       (listOfSpecies as SpeciesWithAreaInHectare[]).reduce(
                         (sum, value) => sum + value.areaInHectare,
@@ -148,26 +136,25 @@ export const OperationClass: React.FC<OperationClassProps> = ({
                         maximumFractionDigits: 1,
                       }
                     ),
-                  }}
-                />
+                  }
+                )}
               </td>
             )}
             <td align="right">
-              <FormattedNumber
-                value={areasInPercentPerSpecies.reduce(
-                  (sum, value) => sum + value.areaInPercent,
-                  0
-                )}
-                style="percent"
-                minimumFractionDigits={1}
-                maximumFractionDigits={1}
-              />
+              {formatNumber(
+                areasInPercentPerSpecies.reduce((sum, value) => sum + value.areaInPercent, 0),
+                {
+                  style: 'percent',
+                  minimumFractionDigits: 1,
+                  maximumFractionDigits: 1,
+                }
+              )}
             </td>
             <td />
             <td align="right">
-              <FormattedMessage
-                id="units.vfmPerHa"
-                values={{
+              {formatMessage(
+                { id: 'units.vfmPerHa' },
+                {
                   value: formatNumber(
                     normalStocks.reduce(
                       (sum, value, index) =>
@@ -176,8 +163,8 @@ export const OperationClass: React.FC<OperationClassProps> = ({
                     ),
                     { minimumFractionDigits: 1, maximumFractionDigits: 1 }
                   ),
-                }}
-              />
+                }
+              )}
             </td>
           </tr>
         </tfoot>

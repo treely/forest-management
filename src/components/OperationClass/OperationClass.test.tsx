@@ -1,4 +1,3 @@
-import React from 'react';
 import { OperationClass } from '.';
 import { render, screen } from '@/test/test-utils';
 import YieldTableEnum from '@/models/YieldTableEnum';

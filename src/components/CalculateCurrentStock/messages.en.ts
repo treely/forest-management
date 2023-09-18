@@ -4,6 +4,7 @@ const messagesEn = {
     'Average yearly harvesting amount',
   'components.calculateCurrentStock.stockInTheYearOfInventory': 'Stock in the year of inventory',
   'components.calculateCurrentStock.currentStock': 'Current stock',
+  'components.calculateCurrentStock.currentYear': 'Current year',
 
   'components.calculateCurrentStock.warningDataMissing':
     'There are missing harvesting amounts for some years between {from} and {to}',
