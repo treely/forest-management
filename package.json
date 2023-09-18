@@ -78,6 +78,7 @@
   },
   "peerDependencies": {
     "react": ">=16",
-    "react-intl": ">=6"
+    "react-intl": ">=6",
+    "next": ">=11"
   }
 }

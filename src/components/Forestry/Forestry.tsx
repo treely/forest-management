@@ -1,16 +1,16 @@
-import React, { useMemo } from 'react';
-import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
+import { useContext, useMemo } from 'react';
 import getAreaInPercent from '@/utils/getAreaInPercent';
 import FeasibilityStudyConfig from '@/models/FeasibilityStudyConfig';
 import getNormalStock from '@/utils/getNormalStock';
 import yieldTables from '@/constants/yieldTables';
+import { IntlContext } from '../ForestManagementProvider';
 
 export interface ForestryProps {
   config: FeasibilityStudyConfig;
 }
 
 export const Forestry = ({ config }: ForestryProps): JSX.Element => {
-  const { formatNumber } = useIntl();
+  const { formatNumber, formatMessage } = useContext(IntlContext);
 
   const operationClassWithAreaInPercent = useMemo(
     () => getAreaInPercent(config.operationClasses),
@@ -67,18 +67,10 @@ export const Forestry = ({ config }: ForestryProps): JSX.Element => {
     <table>
       <thead>
         <tr>
-          <th>
-            <FormattedMessage id="components.forestry.operationClass" />
-          </th>
-          <th>
-            <FormattedMessage id="components.forestry.area" />
-          </th>
-          <th>
-            <FormattedMessage id="components.forestry.areaDistribution" />
-          </th>
-          <th>
-            <FormattedMessage id="components.forestry.normalStock" />
-          </th>
+          <th>{formatMessage({ id: 'components.forestry.operationClass' })}</th>
+          <th>{formatMessage({ id: 'components.forestry.area' })}</th>
+          <th>{formatMessage({ id: 'components.forestry.areaDistribution' })}</th>
+          <th>{formatMessage({ id: 'components.forestry.normalStock' })}</th>
         </tr>
       </thead>
       <tbody>
@@ -86,34 +78,35 @@ export const Forestry = ({ config }: ForestryProps): JSX.Element => {
           <tr key={index}>
             <td>{operationClass.name}</td>
             <td align="right">
-              <FormattedMessage
-                id="units.ha"
-                values={{
+              {formatMessage(
+                {
+                  id: 'units.ha',
+                },
+                {
                   value: formatNumber(operationClass.areaInHectare, {
                     minimumFractionDigits: 1,
                     maximumFractionDigits: 1,
                   }),
-                }}
-              />
+                }
+              )}
             </td>
             <td align="right">
-              <FormattedNumber
-                value={operationClassWithAreaInPercent[index].areaInPercent}
-                style="percent"
-                minimumFractionDigits={1}
-                maximumFractionDigits={1}
-              />
+              {formatNumber(operationClassWithAreaInPercent[index].areaInPercent, {
+                style: 'percent',
+                minimumFractionDigits: 1,
+                maximumFractionDigits: 1,
+              })}
             </td>
             <td align="right">
-              <FormattedMessage
-                id="units.vfmPerHa"
-                values={{
+              {formatMessage(
+                { id: 'units.vfmPerHa' },
+                {
                   value: formatNumber(normalStocksPerOperationClass[index], {
                     minimumFractionDigits: 1,
                     maximumFractionDigits: 1,
                   }),
-                }}
-              />
+                }
+              )}
             </td>
           </tr>
         ))}
@@ -122,34 +115,33 @@ export const Forestry = ({ config }: ForestryProps): JSX.Element => {
         <tr>
           <td />
           <td>
-            <FormattedMessage
-              id="units.ha"
-              values={{
+            {formatMessage(
+              { id: 'units.ha' },
+              {
                 value: formatNumber(totalAreaInHectare, {
                   minimumFractionDigits: 1,
                   maximumFractionDigits: 1,
                 }),
-              }}
-            />
+              }
+            )}
           </td>
           <td align="right">
-            <FormattedNumber
-              value={totalAreaInPercent}
-              style="percent"
-              minimumFractionDigits={1}
-              maximumFractionDigits={1}
-            />
+            {formatNumber(totalAreaInPercent, {
+              style: 'percent',
+              minimumFractionDigits: 1,
+              maximumFractionDigits: 1,
+            })}
           </td>
           <td align="right">
-            <FormattedMessage
-              id="units.vfmPerHa"
-              values={{
+            {formatMessage(
+              { id: 'units.vfmPerHa' },
+              {
                 value: formatNumber(totalNormalStock, {
                   minimumFractionDigits: 1,
                   maximumFractionDigits: 1,
                 }),
-              }}
-            />
+              }
+            )}
           </td>
         </tr>
       </tfoot>

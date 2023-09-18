@@ -4,6 +4,7 @@ const messagesDe = {
     'Durchschnittliche jährliche Nutzungsmenge',
   'components.calculateCurrentStock.stockInTheYearOfInventory': 'Vorrat im Inventurjahr',
   'components.calculateCurrentStock.currentStock': 'Aktueller Vorrat',
+  'components.calculateCurrentStock.currentYear': 'Aktuelles Jahr',
 
   'components.calculateCurrentStock.warningDataMissing':
     'Für einige Jahre zwischen {from} und {to} fehlen Nutzungsmengen',

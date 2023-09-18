@@ -1,8 +1,8 @@
-import React from 'react';
+import { useContext } from 'react';
 import { BoemlyAlert, Spacer } from 'boemly';
 import { useEffect, useMemo, useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 import FeasibilityStudyConfig from '@/models/FeasibilityStudyConfig';
+import { IntlContext } from '../ForestManagementProvider';
 
 const VFM_TO_EFM_FACTOR = 0.75;
 
@@ -11,7 +11,7 @@ export interface CalculateCurrentStockProps {
 }
 
 export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): JSX.Element => {
-  const { formatNumber } = useIntl();
+  const { formatNumber, formatMessage } = useContext(IntlContext);
   const [allRequiredHarvestingAmounts, setAllRequiredHarvestingAmounts] = useState<boolean>(true);
 
   const totalAreaInHectare = useMemo(
@@ -70,7 +70,7 @@ export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): J
   if (config.stockAtPointOfTime.year > config.currentYear) {
     return (
       <BoemlyAlert
-        text={<FormattedMessage id="components.calculateCurrentStock.invalidYears" />}
+        text={formatMessage({ id: 'components.calculateCurrentStock.invalidYears' })}
         status="error"
       />
     );
@@ -82,28 +82,34 @@ export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): J
         <tbody>
           <tr>
             <th align="left">
-              <FormattedMessage id="components.calculateCurrentStock.yearlyIncrement" />
+              {formatMessage({
+                id: 'components.calculateCurrentStock.yearlyIncrement',
+              })}
             </th>
             <td align="right">
-              <FormattedMessage
-                id="units.vfmPerHaYear"
-                values={{
+              {formatMessage(
+                {
+                  id: 'units.vfmPerHaYear',
+                },
+                {
                   value: formatNumber(config.yearlyIncrement, {
                     minimumFractionDigits: 1,
                     maximumFractionDigits: 1,
                   }),
-                }}
-              />
+                }
+              )}
             </td>
           </tr>
           <tr>
             <th align="left">
-              <FormattedMessage id="components.calculateCurrentStock.averageYearlyHarvestingAmount" />
+              {formatMessage({
+                id: 'components.calculateCurrentStock.averageYearlyHarvestingAmount',
+              })}
             </th>
             <td align="right">
-              <FormattedMessage
-                id="units.vfmPerHaYear"
-                values={{
+              {formatMessage(
+                { id: 'units.vfmPerHaYear' },
+                {
                   value:
                     averageHarvestingAmountPerYearPerHectare !== 0
                       ? formatNumber(averageHarvestingAmountPerYearPerHectare, {
@@ -111,40 +117,44 @@ export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): J
                           maximumFractionDigits: 1,
                         })
                       : 'n.a.',
-                }}
-              />
+                }
+              )}
             </td>
           </tr>
           <tr>
             <th align="left">
-              <FormattedMessage id="components.calculateCurrentStock.stockInTheYearOfInventory" />
+              {formatMessage({
+                id: 'components.calculateCurrentStock.stockInTheYearOfInventory',
+              })}
             </th>
             <td align="right">
-              <FormattedMessage
-                id="units.vfmPerHa"
-                values={{
+              {formatMessage(
+                { id: 'units.vfmPerHa' },
+                {
                   value: formatNumber(config.stockAtPointOfTime.stock, {
                     minimumFractionDigits: 1,
                     maximumFractionDigits: 1,
                   }),
-                }}
-              />
+                }
+              )}
             </td>
           </tr>
           <tr>
             <th align="left">
-              <FormattedMessage id="components.calculateCurrentStock.currentStock" />
+              {formatMessage({
+                id: 'components.calculateCurrentStock.currentYear',
+              })}
             </th>
             <td align="right">
-              <FormattedMessage
-                id="units.vfmPerHa"
-                values={{
+              {formatMessage(
+                { id: 'units.vfmPerHa' },
+                {
                   value: formatNumber(currentStock, {
                     minimumFractionDigits: 1,
                     maximumFractionDigits: 1,
                   }),
-                }}
-              />
+                }
+              )}
             </td>
           </tr>
         </tbody>
@@ -153,12 +163,12 @@ export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): J
       {!allRequiredHarvestingAmounts && (
         <>
           <BoemlyAlert
-            text={
-              <FormattedMessage
-                id="components.calculateCurrentStock.warningDataMissing"
-                values={{ from: config.stockAtPointOfTime.year, to: config.currentYear }}
-              />
-            }
+            text={formatMessage(
+              {
+                id: 'components.calculateCurrentStock.warningDataMissing',
+              },
+              { from: config.stockAtPointOfTime.year, to: config.currentYear }
+            )}
             status="warning"
           />
           <Spacer height="4" />

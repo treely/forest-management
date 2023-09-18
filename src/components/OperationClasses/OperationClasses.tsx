@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Heading, Spacer } from 'boemly';
 import FeasibilityStudyConfig from '@/models/FeasibilityStudyConfig';
 import { OperationClass } from '@/components/OperationClass';

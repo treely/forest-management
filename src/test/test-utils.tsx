@@ -1,15 +1,12 @@
 import React, { ReactElement } from 'react';
 import { RenderOptions, render } from '@testing-library/react';
 import { BoemlyThemeProvider } from 'boemly';
-import { IntlProvider } from 'react-intl';
-import rootMessagesEn from '../rootMessages.en';
+import { ForestManagementProvider } from '..';
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <BoemlyThemeProvider>
-      <IntlProvider messages={rootMessagesEn} locale="en">
-        {children}
-      </IntlProvider>
+      <ForestManagementProvider locale="en">{children}</ForestManagementProvider>
     </BoemlyThemeProvider>
   );
 };
