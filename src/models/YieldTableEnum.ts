@@ -33,7 +33,20 @@ enum YieldTableEnum {
   DE_MARSCHALL_FichteBayern = 'de_marschall_fichteBayern',
   DE_MARSCHALL_TanneWuerttemberg = 'de_marschall_tanneWuerttemberg',
 
-  //HU Marschall
+  // DE Wiedemann
+  DE_WIEDEMANN_BirkeBadenWuerttemberg = 'de_wiedemann_birkeBadenWuerttemberg',
+  DE_WIEDEMANN_BucheBadenWuerttemberg = 'de_wiedemann_bucheBadenWuerttemberg',
+  DE_WIEDEMANN_EicheBadenWuerttemberg = 'de_wiedemann_eicheBadenWuerttemberg',
+  DE_WIEDEMANN_ElärcheBadenWuerttemberg = 'de_wiedemann_elärcheBadenWuerttemberg',
+  DE_WIEDEMANN_ErleBadenWuerttemberg = 'de_wiedemann_erleBadenWuerttemberg',
+  DE_WIEDEMANN_EscheBadenWuerttemberg = 'de_wiedemann_escheBadenWuerttemberg',
+  DE_WIEDEMANN_FichteBadenWuerttemberg = 'de_wiedemann_fichteBadenWuerttemberg',
+  DE_WIEDEMANN_JlärcheBadenWuerttemberg = 'de_wiedemann_jlärcheBadenWuerttemberg',
+  DE_WIEDEMANN_KieferBadenWuerttemberg = 'de_wiedemann_kieferBadenWuerttemberg',
+  DE_WIEDEMANN_PappelBadenWuerttemberg = 'de_wiedemann_pappelBadenWuerttemberg',
+  DE_WIEDEMANN_RoteicheBadenWuerttemberg = 'de_wiedemann_roteicheBadenWuerttemberg',
+
+  // HU Marschall
   HU_MARSCHALL_EicheUngarn = 'hu_marschall_eicheUngarn',
 }
 
