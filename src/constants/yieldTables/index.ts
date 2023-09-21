@@ -25,6 +25,17 @@ import de_marschall_bucheBraunschweig from './de_marschall_bucheBraunschweig';
 import de_marschall_douglasieBadenWuerttemberg from './de_marschall_douglasieBadenWuerttemberg';
 import de_marschall_fichteBayern from './de_marschall_fichteBayern';
 import de_marschall_tanneWuerttemberg from './de_marschall_tanneWuerttemberg';
+import de_wiedemann_birkeBadenWuerttemberg from './de_wiedemann_birkeBadenWuerttemberg';
+import de_wiedemann_bucheBadenWuerttemberg from './de_wiedemann_bucheBadenWuerttemberg';
+import de_wiedemann_eicheBadenWuerttemberg from './de_wiedemann_eicheBadenWuerttemberg';
+import de_wiedemann_elärcheBadenWuerttemberg from './de_wiedemann_elärcheBadenWuerttemberg';
+import de_wiedemann_erleBadenWuerttemberg from './de_wiedemann_erleBadenWuerttemberg';
+import de_wiedemann_escheBadenWuerttemberg from './de_wiedemann_escheBadenWuerttemberg';
+import de_wiedemann_fichteBadenWuerttemberg from './de_wiedemann_fichteBadenWuerttemberg';
+import de_wiedemann_jlärcheBadenWuerttemberg from './de_wiedemann_jlärcheBadenWuerttemberg';
+import de_wiedemann_kieferBadenWuerttemberg from './de_wiedemann_kieferBadenWuerttemberg';
+import de_wiedemann_pappelBadenWuerttemberg from './de_wiedemann_pappelBadenWuerttemberg';
+import de_wiedemann_roteicheBadenWuerttemberg from './de_wiedemann_roteicheBadenWuerttemberg';
 
 import hu_marschall_eicheUngarn from './hu_marschall_eicheUngarn';
 
@@ -52,7 +63,7 @@ const yieldTables: Record<YieldTableEnum, YieldTable> = {
   cz_cerny_fichte,
   cz_cerny_kiefer,
 
-  // DE Andere
+  // DE Lockow
   de_lockow_birkeNordOst,
 
   // DE Marschall
@@ -60,6 +71,19 @@ const yieldTables: Record<YieldTableEnum, YieldTable> = {
   de_marschall_douglasieBadenWuerttemberg,
   de_marschall_fichteBayern,
   de_marschall_tanneWuerttemberg,
+
+  // DE Wiedemann
+  de_wiedemann_birkeBadenWuerttemberg,
+  de_wiedemann_bucheBadenWuerttemberg,
+  de_wiedemann_eicheBadenWuerttemberg,
+  de_wiedemann_elärcheBadenWuerttemberg,
+  de_wiedemann_erleBadenWuerttemberg,
+  de_wiedemann_escheBadenWuerttemberg,
+  de_wiedemann_fichteBadenWuerttemberg,
+  de_wiedemann_jlärcheBadenWuerttemberg,
+  de_wiedemann_kieferBadenWuerttemberg,
+  de_wiedemann_pappelBadenWuerttemberg,
+  de_wiedemann_roteicheBadenWuerttemberg,
 
   // HU Marschall
   hu_marschall_eicheUngarn,
