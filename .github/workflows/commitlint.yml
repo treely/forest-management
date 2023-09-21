@@ -1,0 +1,16 @@
+name: Lint Commit Messages
+on: [pull_request]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        # Required to get all history, not just commit that triggers current run
+        with:
+          fetch-depth: 0
+
+      # Upstream bug with the commitlint NPM package
+      - run: rm tsconfig.json
+
+      - uses: wagoid/commitlint-github-action@v5
