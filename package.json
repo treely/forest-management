@@ -70,6 +70,9 @@
       "main"
     ]
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@rollup/plugin-alias": "^5.0.0",
     "@size-limit/preset-big-lib": "^9.0.0",
