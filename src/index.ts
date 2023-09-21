@@ -9,3 +9,4 @@ export { default as yieldTables } from './constants/yieldTables';
 export { default as YieldTableEnum } from '@/models/YieldTableEnum';
 
 export type { default as FeasibilityStudyConfig } from '@/models/FeasibilityStudyConfig';
+export type { default as YieldTable, YieldTableRow } from '@/models/YieldTable';
