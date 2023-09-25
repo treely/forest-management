@@ -1,4 +1,4 @@
-import yieldTables from '@/constants/yieldTables';
+import yieldTables from '../constants/yieldTables';
 import getNormalStock from './getNormalStock';
 
 describe('The getNormalStock forest util', () => {

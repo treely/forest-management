@@ -1,5 +1,5 @@
-import FeasibilityStudyConfig from '@/models/FeasibilityStudyConfig';
-import YieldTableEnum from '@/models/YieldTableEnum';
+import FeasibilityStudyConfig from '../../models/FeasibilityStudyConfig';
+import YieldTableEnum from '../../models/YieldTableEnum';
 
 export const feasibilityStudyConfigMock: FeasibilityStudyConfig = {
   currentYear: 2022,

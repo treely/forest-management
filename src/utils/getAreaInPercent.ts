@@ -1,5 +1,5 @@
-import AreaInHectare from '@/models/AreaInHectare';
-import AreaInPercent from '@/models/AreaInPercent';
+import AreaInHectare from '../models/AreaInHectare';
+import AreaInPercent from '../models/AreaInPercent';
 
 const getAreaInPercent = (list: AreaInPercent[] | AreaInHectare[]): AreaInPercent[] => {
   if (list.length === 0) {

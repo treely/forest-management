@@ -1,5 +1,5 @@
-import rootMessagesDe from '@/rootMessages.de';
-import rootMessagesEn from '@/rootMessages.en';
+import rootMessagesDe from '../../rootMessages.de';
+import rootMessagesEn from '../../rootMessages.en';
 import React, { createContext } from 'react';
 import { createIntl, createIntlCache } from 'react-intl';
 

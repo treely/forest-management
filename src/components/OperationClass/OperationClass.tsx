@@ -1,11 +1,11 @@
 import { useContext, useMemo } from 'react';
 import Link from 'next/link';
-import yieldTables from '@/constants/yieldTables';
-import AreaInHectare from '@/models/AreaInHectare';
-import AreaInPercent from '@/models/AreaInPercent';
-import YieldTableEnum from '@/models/YieldTableEnum';
-import getAreaInPercent from '@/utils/getAreaInPercent';
-import getNormalStock from '@/utils/getNormalStock';
+import yieldTables from '../../constants/yieldTables';
+import AreaInHectare from '../../models/AreaInHectare';
+import AreaInPercent from '../../models/AreaInPercent';
+import YieldTableEnum from '../../models/YieldTableEnum';
+import getAreaInPercent from '../../utils/getAreaInPercent';
+import getNormalStock from '../../utils/getNormalStock';
 import { IntlContext } from '../ForestManagementProvider';
 
 interface Species {

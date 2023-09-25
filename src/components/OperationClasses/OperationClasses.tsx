@@ -1,6 +1,6 @@
 import { Box, Heading, Spacer } from 'boemly';
-import FeasibilityStudyConfig from '@/models/FeasibilityStudyConfig';
-import { OperationClass } from '@/components/OperationClass';
+import FeasibilityStudyConfig from '../../models/FeasibilityStudyConfig';
+import { OperationClass } from '../OperationClass';
 
 export interface OperationClassesProps {
   config: FeasibilityStudyConfig;

@@ -1,4 +1,4 @@
-import YieldTable, { YieldTableRow } from '@/models/YieldTable';
+import YieldTable, { YieldTableRow } from '../models/YieldTable';
 import getYieldClasses from './getYieldClasses';
 
 const getNormalStock = (

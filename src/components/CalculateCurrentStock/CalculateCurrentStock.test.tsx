@@ -1,10 +1,10 @@
-import { render, screen } from '@/test/test-utils';
+import { render, screen } from '../../test/test-utils';
 import { CalculateCurrentStockProps } from './CalculateCurrentStock';
 import { CalculateCurrentStock } from '.';
 import {
   feasibilityStudyConfigMock,
   feasibilityStudyNoHarvestingAmountsConfigMock,
-} from '@/test/mocks/feasibilityStudyConfig';
+} from '../../test/mocks/feasibilityStudyConfig';
 
 const defaultProps: CalculateCurrentStockProps = {
   config: feasibilityStudyConfigMock,

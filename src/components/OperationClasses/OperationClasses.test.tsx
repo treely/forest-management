@@ -1,6 +1,6 @@
-import { render, screen } from '@/test/test-utils';
 import { OperationClasses } from '.';
-import { feasibilityStudyConfigMock } from '@/test/mocks/feasibilityStudyConfig';
+import { render, screen } from '../../test/test-utils';
+import { feasibilityStudyConfigMock } from '../../test/mocks/feasibilityStudyConfig';
 
 const setup = () => {
   render(<OperationClasses config={feasibilityStudyConfigMock} />);

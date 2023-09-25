@@ -1,4 +1,4 @@
-import yieldTables from '@/constants/yieldTables';
+import yieldTables from '../constants/yieldTables';
 import getYieldClasses from './getYieldClasses';
 
 describe('The getYieldClasses forest util', () => {
