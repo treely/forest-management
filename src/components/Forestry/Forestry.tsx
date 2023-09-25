@@ -1,8 +1,8 @@
 import { useContext, useMemo } from 'react';
-import getAreaInPercent from '@/utils/getAreaInPercent';
-import FeasibilityStudyConfig from '@/models/FeasibilityStudyConfig';
-import getNormalStock from '@/utils/getNormalStock';
-import yieldTables from '@/constants/yieldTables';
+import getAreaInPercent from '../../utils/getAreaInPercent';
+import FeasibilityStudyConfig from '../../models/FeasibilityStudyConfig';
+import getNormalStock from '../../utils/getNormalStock';
+import yieldTables from '../../constants/yieldTables';
 import { IntlContext } from '../ForestManagementProvider';
 
 export interface ForestryProps {

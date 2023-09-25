@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { BoemlyAlert, Spacer } from 'boemly';
 import { useEffect, useMemo, useState } from 'react';
-import FeasibilityStudyConfig from '@/models/FeasibilityStudyConfig';
+import FeasibilityStudyConfig from '../../models/FeasibilityStudyConfig';
 import { IntlContext } from '../ForestManagementProvider';
 
 const VFM_TO_EFM_FACTOR = 0.75;

@@ -1,4 +1,4 @@
-import YieldTable from '@/models/YieldTable';
+import YieldTable from '../../models/YieldTable';
 
 const hu_marschall_eicheUngarn: YieldTable = {
   meta: {

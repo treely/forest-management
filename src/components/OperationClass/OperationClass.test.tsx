@@ -1,6 +1,6 @@
 import { OperationClass } from '.';
-import { render, screen } from '@/test/test-utils';
-import YieldTableEnum from '@/models/YieldTableEnum';
+import { render, screen } from '../../test/test-utils';
+import YieldTableEnum from '../../models/YieldTableEnum';
 import { OperationClassProps } from './OperationClass';
 
 const speciesWithAreaInPercent = [

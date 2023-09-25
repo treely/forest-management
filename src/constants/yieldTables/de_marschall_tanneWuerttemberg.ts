@@ -1,4 +1,4 @@
-import YieldTable from '@/models/YieldTable';
+import YieldTable from '../../models/YieldTable';
 
 const de_marschall_tanneWuerttemberg: YieldTable = {
   meta: {

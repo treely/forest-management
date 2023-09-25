@@ -1,6 +1,6 @@
-import componentsCalculateCurrentStockMessagesEn from '@/components/CalculateCurrentStock/messages.en';
-import componentsForestryMessagesEn from '@/components/Forestry/messages.en';
-import componentsOperationClassMessagesEn from '@/components/OperationClass/messages.en';
+import componentsCalculateCurrentStockMessagesEn from './components/CalculateCurrentStock/messages.en';
+import componentsForestryMessagesEn from './components/Forestry/messages.en';
+import componentsOperationClassMessagesEn from './components/OperationClass/messages.en';
 
 const rootMessagesEn = {
   ...componentsCalculateCurrentStockMessagesEn,

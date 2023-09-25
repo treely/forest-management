@@ -1,4 +1,4 @@
-import YieldTable, { YieldTableRow } from '@/models/YieldTable';
+import YieldTable, { YieldTableRow } from '../models/YieldTable';
 
 const findLast = (arr: YieldTableRow[], fn: (yieldTableEntry: any) => boolean) =>
   arr.filter(fn).pop();

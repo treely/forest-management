@@ -3,10 +3,6 @@
   "extends": "@tsconfig/vite-react/tsconfig.json",
   "include": ["src"],
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "jsx": "react-jsx"
   }
 }

@@ -1,4 +1,4 @@
-import YieldTable from '@/models/YieldTable';
+import YieldTable from '../../models/YieldTable';
 
 const cz_cerny_eiche: YieldTable = {
   meta: {

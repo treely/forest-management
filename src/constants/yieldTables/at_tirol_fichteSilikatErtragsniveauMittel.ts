@@ -1,4 +1,4 @@
-import YieldTable from '@/models/YieldTable';
+import YieldTable from '../../models/YieldTable';
 
 const at_tirol_fichteSilikatErtragsniveauMittel: YieldTable = {
   meta: {

@@ -1,5 +1,5 @@
-import YieldTable from '@/models/YieldTable';
-import YieldTableEnum from '@/models/YieldTableEnum';
+import YieldTable from '../../models/YieldTable';
+import YieldTableEnum from '../../models/YieldTableEnum';
 
 import at_tirol_fichteKalkErtragsniveauMittel from './at_tirol_fichteKalkErtragsniveauMittel';
 import at_tirol_fichteSilikatErtragsniveauHoch from './at_tirol_fichteSilikatErtragsniveauHoch';

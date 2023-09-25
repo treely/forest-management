@@ -1,7 +1,7 @@
-import { render, screen } from '@/test/test-utils';
 import { Forestry } from '.';
 import { ForestryProps } from './Forestry';
-import { feasibilityStudyConfigMock } from '@/test/mocks/feasibilityStudyConfig';
+import { render, screen } from '../../test/test-utils';
+import { feasibilityStudyConfigMock } from '../../test/mocks/feasibilityStudyConfig';
 
 const totalAreaOfFeasibilityStudyConfigMock = feasibilityStudyConfigMock.operationClasses.reduce(
   (totalArea, operationClass) => totalArea + operationClass.areaInHectare,
