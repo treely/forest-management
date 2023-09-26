@@ -1,3 +1,4 @@
+import { FOREST_DOCS_BASE_URL } from '../../constants/integrations';
 import rootMessagesDe from '../../rootMessages.de';
 import rootMessagesEn from '../../rootMessages.en';
 import React, { createContext } from 'react';
@@ -15,12 +16,20 @@ const intlFactory = (locale: string) =>
   );
 
 export const IntlContext = createContext(intlFactory('en'));
+export const ForestDocsContext = createContext(FOREST_DOCS_BASE_URL);
 
 interface ForestManagementProviderProps {
   children: React.ReactNode;
   locale: string;
+  forestDocsBaseUrl?: string;
 }
 
-export const ForestManagementProvider = ({ children, locale }: ForestManagementProviderProps) => (
-  <IntlContext.Provider value={intlFactory(locale)}>{children}</IntlContext.Provider>
+export const ForestManagementProvider = ({
+  children,
+  locale,
+  forestDocsBaseUrl,
+}: ForestManagementProviderProps) => (
+  <ForestDocsContext.Provider value={forestDocsBaseUrl ?? FOREST_DOCS_BASE_URL}>
+    <IntlContext.Provider value={intlFactory(locale)}>{children}</IntlContext.Provider>
+  </ForestDocsContext.Provider>
 );

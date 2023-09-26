@@ -7,6 +7,7 @@ import YieldTableEnum from '../../models/YieldTableEnum';
 import getAreaInPercent from '../../utils/getAreaInPercent';
 import getNormalStock from '../../utils/getNormalStock';
 import { IntlContext } from '../ForestManagementProvider';
+import { ForestDocsContext } from '../ForestManagementProvider/ForestManagementProvider';
 
 interface Species {
   /** Free text title of the species */
@@ -31,6 +32,7 @@ export const OperationClass: React.FC<OperationClassProps> = ({
   listOfSpecies,
 }: OperationClassProps) => {
   const { formatNumber, formatMessage } = useContext(IntlContext);
+  const forestDocsBaseUrl = useContext(ForestDocsContext);
 
   const areasInPercentPerSpecies = useMemo(() => getAreaInPercent(listOfSpecies), [listOfSpecies]);
 
@@ -69,7 +71,7 @@ export const OperationClass: React.FC<OperationClassProps> = ({
             <tr key={index}>
               <td>{species.title}</td>
               <td>
-                <Link href={`/yieldTables/${species.yieldTable}`}>
+                <Link href={`${forestDocsBaseUrl}/yieldTables/${species.yieldTable}`}>
                   {yieldTables[species.yieldTable].meta.title}
                 </Link>
               </td>
