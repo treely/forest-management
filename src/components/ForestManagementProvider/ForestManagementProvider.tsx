@@ -1,3 +1,4 @@
+import { BoemlyThemeProvider } from 'boemly';
 import rootMessagesDe from '../../rootMessages.de';
 import rootMessagesEn from '../../rootMessages.en';
 import React, { createContext } from 'react';
@@ -22,5 +23,7 @@ interface ForestManagementProviderProps {
 }
 
 export const ForestManagementProvider = ({ children, locale }: ForestManagementProviderProps) => (
-  <IntlContext.Provider value={intlFactory(locale)}>{children}</IntlContext.Provider>
+  <BoemlyThemeProvider>
+    <IntlContext.Provider value={intlFactory(locale)}>{children}</IntlContext.Provider>
+  </BoemlyThemeProvider>
 );

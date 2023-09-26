@@ -1,8 +1,9 @@
 import { useContext } from 'react';
-import { BoemlyAlert, Spacer } from 'boemly';
+import { BoemlyAlert, Spacer, Table, TableContainer, Tbody, Td, Th, Tr } from 'boemly';
 import { useEffect, useMemo, useState } from 'react';
 import FeasibilityStudyConfig from '../../models/FeasibilityStudyConfig';
 import { IntlContext } from '../ForestManagementProvider';
+import { TableWrapper } from '../TableWrapper';
 
 const VFM_TO_EFM_FACTOR = 0.75;
 
@@ -78,90 +79,96 @@ export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): J
 
   return (
     <>
-      <table>
-        <tbody>
-          <tr>
-            <th align="left">
-              {formatMessage({
-                id: 'components.calculateCurrentStock.yearlyIncrement',
-              })}
-            </th>
-            <td align="right">
-              {formatMessage(
-                {
-                  id: 'units.vfmPerHaYear',
-                },
-                {
-                  value: formatNumber(config.yearlyIncrement, {
-                    minimumFractionDigits: 1,
-                    maximumFractionDigits: 1,
-                  }),
-                }
-              )}
-            </td>
-          </tr>
-          <tr>
-            <th align="left">
-              {formatMessage({
-                id: 'components.calculateCurrentStock.averageYearlyHarvestingAmount',
-              })}
-            </th>
-            <td align="right">
-              {formatMessage(
-                { id: 'units.vfmPerHaYear' },
-                {
-                  value:
-                    averageHarvestingAmountPerYearPerHectare !== 0
-                      ? formatNumber(averageHarvestingAmountPerYearPerHectare, {
-                          minimumFractionDigits: 1,
-                          maximumFractionDigits: 1,
-                        })
-                      : 'n.a.',
-                }
-              )}
-            </td>
-          </tr>
-          <tr>
-            <th align="left">
-              {formatMessage({
-                id: 'components.calculateCurrentStock.stockInTheYearOfInventory',
-              })}
-            </th>
-            <td align="right">
-              {formatMessage(
-                { id: 'units.vfmPerHa' },
-                {
-                  value: formatNumber(config.stockAtPointOfTime.stock, {
-                    minimumFractionDigits: 1,
-                    maximumFractionDigits: 1,
-                  }),
-                }
-              )}
-            </td>
-          </tr>
-          <tr>
-            <th align="left">
-              {formatMessage({
-                id: 'components.calculateCurrentStock.currentYear',
-              })}
-            </th>
-            <td align="right">
-              {formatMessage(
-                { id: 'units.vfmPerHa' },
-                {
-                  value: formatNumber(currentStock, {
-                    minimumFractionDigits: 1,
-                    maximumFractionDigits: 1,
-                  }),
-                }
-              )}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <TableWrapper maxW="2xl">
+        <TableContainer>
+          <Table>
+            <Tbody>
+              <Tr>
+                <Th align="left">
+                  {formatMessage({
+                    id: 'components.calculateCurrentStock.yearlyIncrement',
+                  })}
+                </Th>
+                <Td align="right">
+                  {formatMessage(
+                    {
+                      id: 'units.vfmPerHaYear',
+                    },
+                    {
+                      value: formatNumber(config.yearlyIncrement, {
+                        minimumFractionDigits: 1,
+                        maximumFractionDigits: 1,
+                      }),
+                    }
+                  )}
+                </Td>
+              </Tr>
+              <Tr>
+                <Th align="left">
+                  {formatMessage({
+                    id: 'components.calculateCurrentStock.averageYearlyHarvestingAmount',
+                  })}
+                </Th>
+                <Td align="right">
+                  {formatMessage(
+                    { id: 'units.vfmPerHaYear' },
+                    {
+                      value:
+                        averageHarvestingAmountPerYearPerHectare !== 0
+                          ? formatNumber(averageHarvestingAmountPerYearPerHectare, {
+                              minimumFractionDigits: 1,
+                              maximumFractionDigits: 1,
+                            })
+                          : 'n.a.',
+                    }
+                  )}
+                </Td>
+              </Tr>
+              <Tr>
+                <Th align="left">
+                  {formatMessage({
+                    id: 'components.calculateCurrentStock.stockInTheYearOfInventory',
+                  })}
+                </Th>
+                <Td align="right">
+                  {formatMessage(
+                    { id: 'units.vfmPerHa' },
+                    {
+                      value: formatNumber(config.stockAtPointOfTime.stock, {
+                        minimumFractionDigits: 1,
+                        maximumFractionDigits: 1,
+                      }),
+                    }
+                  )}
+                </Td>
+              </Tr>
+              <Tr>
+                <Th align="left" border="0">
+                  {formatMessage({
+                    id: 'components.calculateCurrentStock.currentYear',
+                  })}
+                </Th>
+                <Td align="right" border="0">
+                  {formatMessage(
+                    { id: 'units.vfmPerHa' },
+                    {
+                      value: formatNumber(currentStock, {
+                        minimumFractionDigits: 1,
+                        maximumFractionDigits: 1,
+                      }),
+                    }
+                  )}
+                </Td>
+              </Tr>
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </TableWrapper>
 
       {!allRequiredHarvestingAmounts && (
         <>
+          <Spacer height="4" />
+
           <BoemlyAlert
             text={formatMessage(
               {
@@ -171,7 +178,6 @@ export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): J
             )}
             status="warning"
           />
-          <Spacer height="4" />
         </>
       )}
     </>
