@@ -91,7 +91,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "boemly": "^5.2.0"
+    "boemly": "^5.3.0"
   },
   "peerDependencies": {
     "next": ">=11",

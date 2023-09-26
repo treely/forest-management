@@ -4,6 +4,8 @@ import FeasibilityStudyConfig from '../../models/FeasibilityStudyConfig';
 import getNormalStock from '../../utils/getNormalStock';
 import yieldTables from '../../constants/yieldTables';
 import { IntlContext } from '../ForestManagementProvider';
+import { Table, TableContainer, Tbody, Td, Th, Thead, Tr, Tfoot } from 'boemly';
+import { TableWrapper } from '../TableWrapper';
 
 export interface ForestryProps {
   config: FeasibilityStudyConfig;
@@ -64,87 +66,91 @@ export const Forestry = ({ config }: ForestryProps): JSX.Element => {
   );
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>{formatMessage({ id: 'components.forestry.operationClass' })}</th>
-          <th>{formatMessage({ id: 'components.forestry.area' })}</th>
-          <th>{formatMessage({ id: 'components.forestry.areaDistribution' })}</th>
-          <th>{formatMessage({ id: 'components.forestry.normalStock' })}</th>
-        </tr>
-      </thead>
-      <tbody>
-        {config.operationClasses.map((operationClass, index) => (
-          <tr key={index}>
-            <td>{operationClass.name}</td>
-            <td align="right">
-              {formatMessage(
-                {
-                  id: 'units.ha',
-                },
-                {
-                  value: formatNumber(operationClass.areaInHectare, {
+    <TableWrapper>
+      <TableContainer>
+        <Table>
+          <Thead>
+            <Tr>
+              <Th>{formatMessage({ id: 'components.forestry.operationClass' })}</Th>
+              <Th>{formatMessage({ id: 'components.forestry.area' })}</Th>
+              <Th>{formatMessage({ id: 'components.forestry.areaDistribution' })}</Th>
+              <Th>{formatMessage({ id: 'components.forestry.normalStock' })}</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {config.operationClasses.map((operationClass, index) => (
+              <Tr key={index}>
+                <Td>{operationClass.name}</Td>
+                <Td align="right">
+                  {formatMessage(
+                    {
+                      id: 'units.ha',
+                    },
+                    {
+                      value: formatNumber(operationClass.areaInHectare, {
+                        minimumFractionDigits: 1,
+                        maximumFractionDigits: 1,
+                      }),
+                    }
+                  )}
+                </Td>
+                <Td align="right">
+                  {formatNumber(operationClassWithAreaInPercent[index].areaInPercent, {
+                    style: 'percent',
                     minimumFractionDigits: 1,
                     maximumFractionDigits: 1,
-                  }),
-                }
-              )}
-            </td>
-            <td align="right">
-              {formatNumber(operationClassWithAreaInPercent[index].areaInPercent, {
-                style: 'percent',
-                minimumFractionDigits: 1,
-                maximumFractionDigits: 1,
-              })}
-            </td>
-            <td align="right">
-              {formatMessage(
-                { id: 'units.vfmPerHa' },
-                {
-                  value: formatNumber(normalStocksPerOperationClass[index], {
-                    minimumFractionDigits: 1,
-                    maximumFractionDigits: 1,
-                  }),
-                }
-              )}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-      <tfoot>
-        <tr>
-          <td />
-          <td>
-            {formatMessage(
-              { id: 'units.ha' },
-              {
-                value: formatNumber(totalAreaInHectare, {
+                  })}
+                </Td>
+                <Td align="right">
+                  {formatMessage(
+                    { id: 'units.vfmPerHa' },
+                    {
+                      value: formatNumber(normalStocksPerOperationClass[index], {
+                        minimumFractionDigits: 1,
+                        maximumFractionDigits: 1,
+                      }),
+                    }
+                  )}
+                </Td>
+              </Tr>
+            ))}
+          </Tbody>
+          <Tfoot>
+            <Tr>
+              <Th />
+              <Th>
+                {formatMessage(
+                  { id: 'units.ha' },
+                  {
+                    value: formatNumber(totalAreaInHectare, {
+                      minimumFractionDigits: 1,
+                      maximumFractionDigits: 1,
+                    }),
+                  }
+                )}
+              </Th>
+              <Th align="right">
+                {formatNumber(totalAreaInPercent, {
+                  style: 'percent',
                   minimumFractionDigits: 1,
                   maximumFractionDigits: 1,
-                }),
-              }
-            )}
-          </td>
-          <td align="right">
-            {formatNumber(totalAreaInPercent, {
-              style: 'percent',
-              minimumFractionDigits: 1,
-              maximumFractionDigits: 1,
-            })}
-          </td>
-          <td align="right">
-            {formatMessage(
-              { id: 'units.vfmPerHa' },
-              {
-                value: formatNumber(totalNormalStock, {
-                  minimumFractionDigits: 1,
-                  maximumFractionDigits: 1,
-                }),
-              }
-            )}
-          </td>
-        </tr>
-      </tfoot>
-    </table>
+                })}
+              </Th>
+              <Th align="right">
+                {formatMessage(
+                  { id: 'units.vfmPerHa' },
+                  {
+                    value: formatNumber(totalNormalStock, {
+                      minimumFractionDigits: 1,
+                      maximumFractionDigits: 1,
+                    }),
+                  }
+                )}
+              </Th>
+            </Tr>
+          </Tfoot>
+        </Table>
+      </TableContainer>
+    </TableWrapper>
   );
 };
