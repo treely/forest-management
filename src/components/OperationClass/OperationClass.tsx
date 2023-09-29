@@ -21,6 +21,7 @@ import {
   Link as BoemlyLink,
 } from 'boemly';
 import { TableWrapper } from '../TableWrapper';
+import { FOREST_DOCS_URI } from '../../constants/integrations';
 
 interface Species {
   /** Free text title of the species */
@@ -90,7 +91,10 @@ export const OperationClass: React.FC<OperationClassProps> = ({
                 <Tr key={index}>
                   <Td>{species.title}</Td>
                   <Td>
-                    <BoemlyLink as={Link} href={`/yieldTables/${species.yieldTable}`}>
+                    <BoemlyLink
+                      as={Link}
+                      href={`${FOREST_DOCS_URI}/yieldTables/${species.yieldTable}`}
+                    >
                       {yieldTables[species.yieldTable].meta.title}
                     </BoemlyLink>
                   </Td>
