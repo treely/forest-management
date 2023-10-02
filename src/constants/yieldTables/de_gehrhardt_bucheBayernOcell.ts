@@ -2,7 +2,7 @@ import YieldTable from '../../models/YieldTable';
 
 const de_gehrhardt_bucheBayernOcell: YieldTable = {
   meta: {
-    title: 'Buche Bayern',
+    title: 'Buche Bayern Ocell',
     author: 'E. Gehrhardt',
     copyright: '',
     source: '',

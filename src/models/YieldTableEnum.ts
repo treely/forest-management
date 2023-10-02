@@ -34,7 +34,19 @@ enum YieldTableEnum {
   DE_MARSCHALL_TanneWuerttemberg = 'de_marschall_tanneWuerttemberg',
 
   // DE Ocell
+  DE_ASSMANN_FichteBayernOcell = 'de_assmann_fichteBayernOcell',
+  DE_BAUMER_RoteicheBayernOcell = 'de_baumer_roteicheBayernOcell',
+  DE_BERGEL_DouglasieBayernOcell = 'de_bergel_douglasieBayernOcell',
+  DE_ECKSTEIN_StrobeBayernOcell = 'de_eckstein_strobeBayernOcell',
   DE_GEHRHARDT_BucheBayernOcell = 'de_gehrhardt_bucheBayernOcell',
+  DE_HAUSSER_TanneBayernOcell = 'de_hausser_tanneBayernOcell',
+  DE_JUETTNER_EicheBayernOcell = 'de_juettner_eicheBayernOcell',
+  DE_MITSCHERLICH_ErleBayernOcell = 'de_mitscherlich_erleBayernOcell',
+  DE_RAEZEL_PappelBayernOcell = 'de_raezel_pappelBayernOcell',
+  DE_SCHOBER_LaercheBayernOcell = 'de_schober_laercheBayernOcell',
+  DE_SCHWAPPACH_BirkeBayernOcell = 'de_schwappach_birkeBayernOcell',
+  DE_VOLLQUARDTS_EscheBayernOcell = 'de_volquardts_escheBayernOcell',
+  DE_WIEDEMANN_KieferBayernOcell = 'de_wiedemann_kieferBayernOcell',
 
   // DE Wiedemann
   DE_WIEDEMANN_BirkeBadenWuerttemberg = 'de_wiedemann_birkeBadenWuerttemberg',
