@@ -33,6 +33,9 @@ enum YieldTableEnum {
   DE_MARSCHALL_FichteBayern = 'de_marschall_fichteBayern',
   DE_MARSCHALL_TanneWuerttemberg = 'de_marschall_tanneWuerttemberg',
 
+  // DE Ocell
+  DE_GEHRHARDT_BucheBayernOcell = 'de_gehrhardt_bucheBayernOcell',
+
   // DE Wiedemann
   DE_WIEDEMANN_BirkeBadenWuerttemberg = 'de_wiedemann_birkeBadenWuerttemberg',
   DE_WIEDEMANN_BucheBadenWuerttemberg = 'de_wiedemann_bucheBadenWuerttemberg',

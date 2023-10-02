@@ -20,6 +20,7 @@ import cz_cerny_eiche from './cz_cerny_eiche';
 import cz_cerny_fichte from './cz_cerny_fichte';
 import cz_cerny_kiefer from './cz_cerny_kiefer';
 
+import de_gehrhardt_bucheBayernOcell from './de_gehrhardt_bucheBayernOcell';
 import de_lockow_birkeNordOst from './de_lockow_birkeNordOst';
 import de_marschall_bucheBraunschweig from './de_marschall_bucheBraunschweig';
 import de_marschall_douglasieBadenWuerttemberg from './de_marschall_douglasieBadenWuerttemberg';
@@ -71,6 +72,9 @@ const yieldTables: Record<YieldTableEnum, YieldTable> = {
   de_marschall_douglasieBadenWuerttemberg,
   de_marschall_fichteBayern,
   de_marschall_tanneWuerttemberg,
+
+  // DE Ocell
+  de_gehrhardt_bucheBayernOcell,
 
   // DE Wiedemann
   de_wiedemann_birkeBadenWuerttemberg,
