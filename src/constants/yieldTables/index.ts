@@ -20,12 +20,23 @@ import cz_cerny_eiche from './cz_cerny_eiche';
 import cz_cerny_fichte from './cz_cerny_fichte';
 import cz_cerny_kiefer from './cz_cerny_kiefer';
 
+import de_assmann_fichteBayernOcell from './de_assmann_fichteBayernOcell';
+import de_baumer_roteicheBayernOcell from './de_baumer_roteicheBayernOcell';
+import de_bergel_douglasieBayernOcell from './de_bergel_douglasieBayernOcell';
+import de_eckstein_strobeBayernOcell from './de_eckstein_strobeBayernOcell';
 import de_gehrhardt_bucheBayernOcell from './de_gehrhardt_bucheBayernOcell';
+import de_hausser_tanneBayernOcell from './de_hausser_tanneBayernOcell';
+import de_juettner_eicheBayernOcell from './de_juettner_eicheBayernOcell';
 import de_lockow_birkeNordOst from './de_lockow_birkeNordOst';
 import de_marschall_bucheBraunschweig from './de_marschall_bucheBraunschweig';
 import de_marschall_douglasieBadenWuerttemberg from './de_marschall_douglasieBadenWuerttemberg';
 import de_marschall_fichteBayern from './de_marschall_fichteBayern';
 import de_marschall_tanneWuerttemberg from './de_marschall_tanneWuerttemberg';
+import de_mitscherlich_erleBayernOcell from './de_mitscherlich_erleBayernOcell';
+import de_raezel_pappelBayernOcell from './de_raezel_pappelBayernOcell';
+import de_schober_laercheBayernOcell from './de_schober_laercheBayernOcell';
+import de_schwappach_birkeBayernOcell from './de_schwappach_birkeBayernOcell';
+import de_volquardts_escheBayernOcell from './de_volquardts_escheBayernOcell';
 import de_wiedemann_birkeBadenWuerttemberg from './de_wiedemann_birkeBadenWuerttemberg';
 import de_wiedemann_bucheBadenWuerttemberg from './de_wiedemann_bucheBadenWuerttemberg';
 import de_wiedemann_eicheBadenWuerttemberg from './de_wiedemann_eicheBadenWuerttemberg';
@@ -35,6 +46,7 @@ import de_wiedemann_escheBadenWuerttemberg from './de_wiedemann_escheBadenWuertt
 import de_wiedemann_fichteBadenWuerttemberg from './de_wiedemann_fichteBadenWuerttemberg';
 import de_wiedemann_jlärcheBadenWuerttemberg from './de_wiedemann_jlärcheBadenWuerttemberg';
 import de_wiedemann_kieferBadenWuerttemberg from './de_wiedemann_kieferBadenWuerttemberg';
+import de_wiedemann_kieferBayernOcell from './de_wiedemann_kieferBayernOcell';
 import de_wiedemann_pappelBadenWuerttemberg from './de_wiedemann_pappelBadenWuerttemberg';
 import de_wiedemann_roteicheBadenWuerttemberg from './de_wiedemann_roteicheBadenWuerttemberg';
 
@@ -74,7 +86,19 @@ const yieldTables: Record<YieldTableEnum, YieldTable> = {
   de_marschall_tanneWuerttemberg,
 
   // DE Ocell
+  de_assmann_fichteBayernOcell,
+  de_baumer_roteicheBayernOcell,
+  de_bergel_douglasieBayernOcell,
+  de_eckstein_strobeBayernOcell,
   de_gehrhardt_bucheBayernOcell,
+  de_hausser_tanneBayernOcell,
+  de_juettner_eicheBayernOcell,
+  de_mitscherlich_erleBayernOcell,
+  de_raezel_pappelBayernOcell,
+  de_schober_laercheBayernOcell,
+  de_schwappach_birkeBayernOcell,
+  de_volquardts_escheBayernOcell,
+  de_wiedemann_kieferBayernOcell,
 
   // DE Wiedemann
   de_wiedemann_birkeBadenWuerttemberg,
