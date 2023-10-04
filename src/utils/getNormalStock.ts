@@ -1,4 +1,5 @@
 import YieldTable, { YieldTableRow } from '../models/YieldTable';
+import getAgeClassInterval from './getAgeClassInterval';
 import getYieldClasses from './getYieldClasses';
 
 const getNormalStock = (
@@ -18,8 +19,8 @@ const getNormalStock = (
   // Get the yield classes via the `getYieldClasses` util (The util returns one or two yield classes)
   const yieldClasses: number[] = getYieldClasses(yieldTable, siteProductivity);
 
-  // Define the age gap
-  const ageGap: number = 10; // TODO: get dynamically from yield table via a new forest util
+  // Get the age class interval
+  const ageClassInterval = getAgeClassInterval(yieldTable);
 
   // Get the yield table rows for the relevant yield classes and relevant age levels
   const yieldTableRowsForRelevantYieldClassesAndAgeLevels: YieldTableRow[][] = yieldClasses.map(
@@ -40,7 +41,7 @@ const getNormalStock = (
         return acc + stock;
       }, 0);
 
-      return (ageGap / rotationPeriod) * sumOfStocks;
+      return (ageClassInterval / rotationPeriod) * sumOfStocks;
     }
   );
 

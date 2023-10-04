@@ -40,6 +40,20 @@ describe('The getNormalStock forest util', () => {
     expect(actual.toFixed(0)).toEqual(expected);
   });
 
+  it('should return the normal stock for a yield class', () => {
+    const yieldClass = 3.7;
+    const rotationPeriod = 85;
+    const expected = '171';
+
+    const actual = getNormalStock(
+      yieldTables['de_assmann_fichteBayernOcell'],
+      yieldClass,
+      rotationPeriod
+    );
+
+    expect(actual.toFixed(0)).toEqual(expected);
+  });
+
   it('throws an error if no age level is found in the given yield table for the given rotation period', () => {
     const yieldClass = 7.1;
     const rotationPeriod = 135;
