@@ -33,7 +33,7 @@ enum YieldTableEnum {
   DE_MARSCHALL_FichteBayern = 'de_marschall_fichteBayern',
   DE_MARSCHALL_TanneWuerttemberg = 'de_marschall_tanneWuerttemberg',
 
-  // DE Ocell
+  // DE Ocell Bayern
   DE_ASSMANN_FichteBayernOcell = 'de_assmann_fichteBayernOcell',
   DE_BAUMER_RoteicheBayernOcell = 'de_baumer_roteicheBayernOcell',
   DE_BERGEL_DouglasieBayernOcell = 'de_bergel_douglasieBayernOcell',
@@ -47,6 +47,21 @@ enum YieldTableEnum {
   DE_SCHWAPPACH_BirkeBayernOcell = 'de_schwappach_birkeBayernOcell',
   DE_VOLLQUARDTS_EscheBayernOcell = 'de_volquardts_escheBayernOcell',
   DE_WIEDEMANN_KieferBayernOcell = 'de_wiedemann_kieferBayernOcell',
+
+  // DE Ocell Brandenburg
+  DE_BAUMER_RoteicheBrandenburgOcell = 'de_baumer_roteicheBrandenburgOcell',
+  DE_BERGEL_DouglasieBrandenburgOcell = 'de_bergel_douglasieBrandenburgOcell',
+  DE_DITTMAR_BucheBrandenburgOcell = 'de_dittmar_bucheBrandenburgOcell',
+  DE_ECKSTEIN_StrobeBrandenburgOcell = 'de_eckstein_strobeBrandenburgOcell',
+  DE_ERTELD_EicheBrandenburgOcell = 'de_erteld_eicheBrandenburgOcell',
+  DE_LEMBCKE_KieferBrandenburgOcell = 'de_lembcke_kieferBrandenburgOcell',
+  DE_LOCKOW_ErleBrandenburgOcell = 'de_lockow_erleBrandenburgOcell',
+  DE_LOCKOW_MoorbirkeBrandenburgOcell = 'de_lockow_moorbirkeBrandenburgOcell',
+  DE_RAETZEL_PappelBrandenburgOcell = 'de_raetzel_pappelBrandenburgOcell',
+  DE_SCHMIDT_TanneBrandenburgOcell = 'de_schmidt_tanneBrandenburgOcell',
+  DE_SCHOBER_LaercheBrandenburgOcell = 'de_schober_laercheBrandenburgOcell',
+  DE_VOLLQUARDTS_EscheBrandenburgOcell = 'de_vollquardts_escheBrandenburgOcell',
+  DE_WENK_FichteBrandenburgOcell = 'de_wenk_fichteBrandenburgOcell',
 
   // DE Wiedemann
   DE_WIEDEMANN_BirkeBadenWuerttemberg = 'de_wiedemann_birkeBadenWuerttemberg',
