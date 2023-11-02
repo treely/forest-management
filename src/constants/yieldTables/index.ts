@@ -11,6 +11,7 @@ import at_tirol_zirbe from './at_tirol_zirbe';
 
 import at_marschall_fichteBruck from './at_marschall_fichteBruck';
 import at_marschall_fichteHochgebirge from './at_marschall_fichteHochgebirge';
+import at_marschall_fichteWeitra from './at_marschall_fichteWeitra';
 import at_marschall_kieferLitschau from './at_marschall_kieferLitschau';
 
 import ch_marschall_laercheSchweiz from './ch_marschall_laercheSchweiz';
@@ -78,6 +79,7 @@ const yieldTables: Record<YieldTableEnum, YieldTable> = {
   // AT Marschall
   at_marschall_fichteBruck,
   at_marschall_fichteHochgebirge,
+  at_marschall_fichteWeitra,
   at_marschall_kieferLitschau,
 
   // CH Marschall
