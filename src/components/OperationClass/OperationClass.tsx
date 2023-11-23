@@ -1,5 +1,4 @@
 import { useContext, useMemo } from 'react';
-import Link from 'next/link';
 import yieldTables from '../../constants/yieldTables';
 import AreaInHectare from '../../models/AreaInHectare';
 import AreaInPercent from '../../models/AreaInPercent';
@@ -92,7 +91,7 @@ export const OperationClass: React.FC<OperationClassProps> = ({
                   <Td>{species.title}</Td>
                   <Td>
                     <BoemlyLink
-                      as={Link}
+                      as="a"
                       href={`${FOREST_DOCS_URI}/yieldTables/${species.yieldTable}`}
                     >
                       {yieldTables[species.yieldTable].meta.title}
