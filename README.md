@@ -21,7 +21,7 @@ or `BoemlyThemeProvider` as a _child_ of `ForestManagementProvider`.
 
 ## Docs
 
-Find the documentation [here](https://forest-management.tree.ly).
+Find the documentation [here](https://forest-management.vercel.app).
 
 ## Development
 

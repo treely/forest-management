@@ -16,6 +16,7 @@ export const OperationClasses = ({ config }: OperationClassesProps): JSX.Element
             <Heading>{operationClass.name}</Heading>
             <OperationClass
               rotationPeriod={operationClass.rotationPeriod}
+              areaInHectare={operationClass.areaInHectare}
               listOfSpecies={operationClass.listOfSpecies}
             />
             <Spacer height="4" />

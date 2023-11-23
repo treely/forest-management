@@ -37,16 +37,31 @@ interface SpeciesWithAreaInHectare extends Species, AreaInHectare {}
 
 export interface OperationClassProps {
   rotationPeriod: number;
+  areaInHectare?: number;
   listOfSpecies: SpeciesWithPercentageArea[] | SpeciesWithAreaInHectare[];
 }
 
 export const OperationClass: React.FC<OperationClassProps> = ({
   rotationPeriod,
+  areaInHectare = 0,
   listOfSpecies,
 }: OperationClassProps) => {
   const { formatNumber, formatMessage } = useContext(IntlContext);
 
   const areasInPercentPerSpecies = useMemo(() => getAreaInPercent(listOfSpecies), [listOfSpecies]);
+  const areaInHectarePerSpecies: AreaInHectare[] = useMemo(() => {
+    if (listOfSpecies[0]?.hasOwnProperty('areaInHectare')) {
+      return listOfSpecies.map((species) => ({
+        areaInHectare: (species as SpeciesWithAreaInHectare).areaInHectare,
+      }));
+    }
+    if (areaInHectare && listOfSpecies[0]?.hasOwnProperty('areaInPercent')) {
+      return listOfSpecies.map((species) => ({
+        areaInHectare: (species as SpeciesWithPercentageArea).areaInPercent * areaInHectare,
+      }));
+    }
+    return [];
+  }, [listOfSpecies, areaInHectare]);
 
   const normalStocks = useMemo(
     () =>
@@ -57,8 +72,8 @@ export const OperationClass: React.FC<OperationClassProps> = ({
   );
 
   const hasAreaInHectare: boolean = useMemo(
-    () => listOfSpecies[0]?.hasOwnProperty('areaInHectare'),
-    [listOfSpecies]
+    () => areaInHectarePerSpecies.length > 0,
+    [areaInHectarePerSpecies]
   );
 
   return (
@@ -104,7 +119,7 @@ export const OperationClass: React.FC<OperationClassProps> = ({
                           id: 'units.ha',
                         },
                         {
-                          value: formatNumber((species as SpeciesWithAreaInHectare).areaInHectare, {
+                          value: formatNumber(areaInHectarePerSpecies[index].areaInHectare, {
                             minimumFractionDigits: 1,
                             maximumFractionDigits: 1,
                           }),
@@ -151,7 +166,7 @@ export const OperationClass: React.FC<OperationClassProps> = ({
                       { id: 'units.ha' },
                       {
                         value: formatNumber(
-                          (listOfSpecies as SpeciesWithAreaInHectare[]).reduce(
+                          areaInHectarePerSpecies.reduce(
                             (sum, value) => sum + value.areaInHectare,
                             0
                           ),

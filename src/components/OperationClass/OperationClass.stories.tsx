@@ -36,3 +36,23 @@ export const Default: Story = {
     rotationPeriod: feasibilityStudyConfigMock.operationClasses[0].rotationPeriod,
   },
 };
+
+export const WithAreaInHectarePerSpecies: Story = {
+  args: {
+    listOfSpecies: feasibilityStudyConfigMock.operationClasses[0].listOfSpecies.map((species) => ({
+      title: species.title,
+      siteProductivity: species.siteProductivity,
+      yieldTable: species.yieldTable,
+      areaInHectare: 200 * species.areaInPercent,
+    })),
+    rotationPeriod: feasibilityStudyConfigMock.operationClasses[0].rotationPeriod,
+  },
+};
+
+export const WithTotalAreaInHectare: Story = {
+  args: {
+    listOfSpecies: feasibilityStudyConfigMock.operationClasses[0].listOfSpecies,
+    rotationPeriod: feasibilityStudyConfigMock.operationClasses[0].rotationPeriod,
+    areaInHectare: 200,
+  },
+};
