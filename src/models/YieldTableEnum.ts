@@ -6,8 +6,10 @@ enum YieldTableEnum {
   AT_TIROL_LaercheSuedtirol = 'at_tirol_laercheSuedtirol',
   AT_TIROL_KieferSuedtirol = 'at_tirol_kieferSuedtirol',
   AT_TIROL_FichteKalkErtragsniveauMittel = 'at_tirol_fichteKalkErtragsniveauMittel',
+  AT_TIROL_FichteKalkErtragsniveauNieder = 'at_tirol_fichteKalkErtragsniveauNieder',
   AT_TIROL_FichteSilikatErtragsniveauHoch = 'at_tirol_fichteSilikatErtragsniveauHoch',
   AT_TIROL_FichteSilikatErtragsniveauMittel = 'at_tirol_fichteSilikatErtragsniveauMittel',
+  AT_TIROL_Tanne = 'at_tirol_tanne',
   AT_TIROL_Zirbe = 'at_tirol_zirbe',
 
   // AT Marschall

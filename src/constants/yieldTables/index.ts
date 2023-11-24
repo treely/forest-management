@@ -2,11 +2,13 @@ import YieldTable from '../../models/YieldTable';
 import YieldTableEnum from '../../models/YieldTableEnum';
 
 import at_tirol_fichteKalkErtragsniveauMittel from './at_tirol_fichteKalkErtragsniveauMittel';
+import at_tirol_fichteKalkErtragsniveauNieder from './at_tirol_fichteKalkErtragsniveauNieder';
 import at_tirol_fichteSilikatErtragsniveauHoch from './at_tirol_fichteSilikatErtragsniveauHoch';
 import at_tirol_fichteSilikatErtragsniveauMittel from './at_tirol_fichteSilikatErtragsniveauMittel';
 import at_tirol_laercheSuedtirol from './at_tirol_laercheSuedtirol';
 import at_tirol_buche from './at_tirol_buche';
 import at_tirol_kieferSuedtirol from './at_tirol_kieferSuedtirol';
+import at_tirol_tanne from './at_tirol_tanne';
 import at_tirol_zirbe from './at_tirol_zirbe';
 
 import at_marschall_fichteBruck from './at_marschall_fichteBruck';
@@ -70,10 +72,12 @@ const yieldTables: Record<YieldTableEnum, YieldTable> = {
   // AT Tirol
   at_tirol_buche,
   at_tirol_fichteKalkErtragsniveauMittel,
+  at_tirol_fichteKalkErtragsniveauNieder,
   at_tirol_fichteSilikatErtragsniveauHoch,
   at_tirol_fichteSilikatErtragsniveauMittel,
   at_tirol_kieferSuedtirol,
   at_tirol_laercheSuedtirol,
+  at_tirol_tanne,
   at_tirol_zirbe,
 
   // AT Marschall
