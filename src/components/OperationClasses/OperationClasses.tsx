@@ -10,19 +10,23 @@ export const OperationClasses = ({ config }: OperationClassesProps): JSX.Element
   return (
     <>
       <Spacer height="4" />
-      {config.operationClasses.map((operationClass, index) => {
-        return (
-          <Box key={`${operationClass.name.toLowerCase()}-${index}`}>
-            <Heading>{operationClass.name}</Heading>
-            <OperationClass
-              rotationPeriod={operationClass.rotationPeriod}
-              areaInHectare={operationClass.areaInHectare}
-              listOfSpecies={operationClass.listOfSpecies}
-            />
-            <Spacer height="4" />
-          </Box>
-        );
-      })}
+      {config.operationClasses
+        .sort((operationClassA, operationClassB) =>
+          operationClassA.name.localeCompare(operationClassB.name)
+        )
+        .map((operationClass, index) => {
+          return (
+            <Box key={`${operationClass.name.toLowerCase()}-${index}`}>
+              <Heading>{operationClass.name}</Heading>
+              <OperationClass
+                rotationPeriod={operationClass.rotationPeriod}
+                areaInHectare={operationClass.areaInHectare}
+                listOfSpecies={operationClass.listOfSpecies}
+              />
+              <Spacer height="4" />
+            </Box>
+          );
+        })}
     </>
   );
 };

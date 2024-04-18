@@ -101,60 +101,62 @@ export const OperationClass: React.FC<OperationClassProps> = ({
               </Tr>
             </Thead>
             <Tbody>
-              {listOfSpecies.map((species, index) => (
-                <Tr key={index}>
-                  <Td>{species.title}</Td>
-                  <Td>
-                    <BoemlyLink
-                      as="a"
-                      href={`${FOREST_DOCS_URI}/yieldTables/${species.yieldTable}`}
-                    >
-                      {yieldTables[species.yieldTable].meta.title}
-                    </BoemlyLink>
-                  </Td>
-                  {hasAreaInHectare && (
+              {listOfSpecies
+                .sort((speciesA, speciesB) => speciesA.title.localeCompare(speciesB.title))
+                .map((species, index) => (
+                  <Tr key={index}>
+                    <Td>{species.title}</Td>
+                    <Td>
+                      <BoemlyLink
+                        as="a"
+                        href={`${FOREST_DOCS_URI}/yieldTables/${species.yieldTable}`}
+                      >
+                        {yieldTables[species.yieldTable].meta.title}
+                      </BoemlyLink>
+                    </Td>
+                    {hasAreaInHectare && (
+                      <Td align="right">
+                        {formatMessage(
+                          {
+                            id: 'units.ha',
+                          },
+                          {
+                            value: formatNumber(areaInHectarePerSpecies[index].areaInHectare, {
+                              minimumFractionDigits: 1,
+                              maximumFractionDigits: 1,
+                            }),
+                          }
+                        )}
+                      </Td>
+                    )}
+                    <Td align="right">
+                      {formatNumber(areasInPercentPerSpecies[index].areaInPercent, {
+                        style: 'percent',
+                        minimumFractionDigits: 1,
+                        maximumFractionDigits: 1,
+                      })}
+                    </Td>
+                    <Td align="right">
+                      {formatNumber(species.siteProductivity, {
+                        minimumFractionDigits: 1,
+                        maximumFractionDigits: 1,
+                      })}
+                    </Td>
                     <Td align="right">
                       {formatMessage(
                         {
-                          id: 'units.ha',
+                          id: 'units.vfmPerHa',
                         },
                         {
-                          value: formatNumber(areaInHectarePerSpecies[index].areaInHectare, {
+                          value: formatNumber(normalStocks[index], {
                             minimumFractionDigits: 1,
                             maximumFractionDigits: 1,
                           }),
                         }
                       )}
                     </Td>
-                  )}
-                  <Td align="right">
-                    {formatNumber(areasInPercentPerSpecies[index].areaInPercent, {
-                      style: 'percent',
-                      minimumFractionDigits: 1,
-                      maximumFractionDigits: 1,
-                    })}
-                  </Td>
-                  <Td align="right">
-                    {formatNumber(species.siteProductivity, {
-                      minimumFractionDigits: 1,
-                      maximumFractionDigits: 1,
-                    })}
-                  </Td>
-                  <Td align="right">
-                    {formatMessage(
-                      {
-                        id: 'units.vfmPerHa',
-                      },
-                      {
-                        value: formatNumber(normalStocks[index], {
-                          minimumFractionDigits: 1,
-                          maximumFractionDigits: 1,
-                        }),
-                      }
-                    )}
-                  </Td>
-                </Tr>
-              ))}
+                  </Tr>
+                ))}
             </Tbody>
             <Tfoot>
               <Tr>

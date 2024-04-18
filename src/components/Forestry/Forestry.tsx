@@ -78,42 +78,46 @@ export const Forestry = ({ config }: ForestryProps): JSX.Element => {
             </Tr>
           </Thead>
           <Tbody>
-            {config.operationClasses.map((operationClass, index) => (
-              <Tr key={index}>
-                <Td>{operationClass.name}</Td>
-                <Td align="right">
-                  {formatMessage(
-                    {
-                      id: 'units.ha',
-                    },
-                    {
-                      value: formatNumber(operationClass.areaInHectare, {
-                        minimumFractionDigits: 1,
-                        maximumFractionDigits: 1,
-                      }),
-                    }
-                  )}
-                </Td>
-                <Td align="right">
-                  {formatNumber(operationClassWithAreaInPercent[index].areaInPercent, {
-                    style: 'percent',
-                    minimumFractionDigits: 1,
-                    maximumFractionDigits: 1,
-                  })}
-                </Td>
-                <Td align="right">
-                  {formatMessage(
-                    { id: 'units.vfmPerHa' },
-                    {
-                      value: formatNumber(normalStocksPerOperationClass[index], {
-                        minimumFractionDigits: 1,
-                        maximumFractionDigits: 1,
-                      }),
-                    }
-                  )}
-                </Td>
-              </Tr>
-            ))}
+            {config.operationClasses
+              .sort((operationClassA, operationClassB) =>
+                operationClassA.name.localeCompare(operationClassB.name)
+              )
+              .map((operationClass, index) => (
+                <Tr key={index}>
+                  <Td>{operationClass.name}</Td>
+                  <Td align="right">
+                    {formatMessage(
+                      {
+                        id: 'units.ha',
+                      },
+                      {
+                        value: formatNumber(operationClass.areaInHectare, {
+                          minimumFractionDigits: 1,
+                          maximumFractionDigits: 1,
+                        }),
+                      }
+                    )}
+                  </Td>
+                  <Td align="right">
+                    {formatNumber(operationClassWithAreaInPercent[index].areaInPercent, {
+                      style: 'percent',
+                      minimumFractionDigits: 1,
+                      maximumFractionDigits: 1,
+                    })}
+                  </Td>
+                  <Td align="right">
+                    {formatMessage(
+                      { id: 'units.vfmPerHa' },
+                      {
+                        value: formatNumber(normalStocksPerOperationClass[index], {
+                          minimumFractionDigits: 1,
+                          maximumFractionDigits: 1,
+                        }),
+                      }
+                    )}
+                  </Td>
+                </Tr>
+              ))}
           </Tbody>
           <Tfoot>
             <Tr>
