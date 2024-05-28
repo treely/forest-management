@@ -2,7 +2,7 @@
   "name": "@treely/forest-management",
   "version": "0.0.0-development",
   "license": "MIT",
-  "author": "Tree.ly GmbH",
+  "author": "Tree.ly FlexCo",
   "main": "dist/index.js",
   "module": "dist/forest-management.esm.js",
   "typings": "dist/index.d.ts",
