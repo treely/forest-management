@@ -105,7 +105,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "boemly": "^5.3.0"
+    "boemly": "^7.0.0"
   },
   "peerDependencies": {
     "react": ">=18",
