@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { BoemlyAlert, Spacer, Table } from 'boemly';
+import { BoemlyAlert, Spacer, Table, TableContainer, Tbody, Td, Th, Tr } from 'boemly';
 import { useEffect, useMemo, useState } from 'react';
 import FeasibilityStudyConfig from '../../models/FeasibilityStudyConfig';
 import { IntlContext } from '../ForestManagementProvider';
@@ -13,7 +13,6 @@ export interface CalculateCurrentStockProps {
 
 export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): JSX.Element => {
   const { formatNumber, formatMessage } = useContext(IntlContext);
-  const { ScrollArea, Root, Body, ColumnHeader, Row, Cell } = Table;
   const [allRequiredHarvestingAmounts, setAllRequiredHarvestingAmounts] = useState<boolean>(true);
 
   const totalAreaInHectare = useMemo(
@@ -81,16 +80,16 @@ export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): J
   return (
     <>
       <TableWrapper maxW="2xl">
-        <ScrollArea>
-          <Root>
-            <Body>
-              <Row>
-                <ColumnHeader align="left">
+        <TableContainer>
+          <Table>
+            <Tbody>
+              <Tr>
+                <Th align="left">
                   {formatMessage({
                     id: 'components.calculateCurrentStock.yearlyIncrement',
                   })}
-                </ColumnHeader>
-                <Cell align="right">
+                </Th>
+                <Td align="right">
                   {formatMessage(
                     {
                       id: 'units.vfmPerHaYear',
@@ -102,15 +101,15 @@ export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): J
                       }),
                     }
                   )}
-                </Cell>
-              </Row>
-              <Row>
-                <ColumnHeader align="left">
+                </Td>
+              </Tr>
+              <Tr>
+                <Th align="left">
                   {formatMessage({
                     id: 'components.calculateCurrentStock.averageYearlyHarvestingAmount',
                   })}
-                </ColumnHeader>
-                <Cell align="right">
+                </Th>
+                <Td align="right">
                   {formatMessage(
                     { id: 'units.vfmPerHaYear' },
                     {
@@ -123,15 +122,15 @@ export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): J
                           : 'n.a.',
                     }
                   )}
-                </Cell>
-              </Row>
-              <Row>
-                <ColumnHeader align="left">
+                </Td>
+              </Tr>
+              <Tr>
+                <Th align="left">
                   {formatMessage({
                     id: 'components.calculateCurrentStock.stockInTheYearOfInventory',
                   })}
-                </ColumnHeader>
-                <Cell align="right">
+                </Th>
+                <Td align="right">
                   {formatMessage(
                     { id: 'units.vfmPerHa' },
                     {
@@ -141,15 +140,15 @@ export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): J
                       }),
                     }
                   )}
-                </Cell>
-              </Row>
-              <Row>
-                <ColumnHeader align="left" border="0">
+                </Td>
+              </Tr>
+              <Tr>
+                <Th align="left" border="0">
                   {formatMessage({
                     id: 'components.calculateCurrentStock.currentYear',
                   })}
-                </ColumnHeader>
-                <Cell align="right" border="0">
+                </Th>
+                <Td align="right" border="0">
                   {formatMessage(
                     { id: 'units.vfmPerHa' },
                     {
@@ -159,11 +158,11 @@ export const CalculateCurrentStock = ({ config }: CalculateCurrentStockProps): J
                       }),
                     }
                   )}
-                </Cell>
-              </Row>
-            </Body>
-          </Root>
-        </ScrollArea>
+                </Td>
+              </Tr>
+            </Tbody>
+          </Table>
+        </TableContainer>
       </TableWrapper>
 
       {!allRequiredHarvestingAmounts && (

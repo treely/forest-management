@@ -6,7 +6,19 @@ import YieldTableEnum from '../../models/YieldTableEnum';
 import getAreaInPercent from '../../utils/getAreaInPercent';
 import getNormalStock from '../../utils/getNormalStock';
 import { IntlContext } from '../ForestManagementProvider';
-import { Table, Flex, Text, Link as BoemlyLink } from 'boemly';
+import {
+  Table,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Thead,
+  Tr,
+  TableContainer,
+  Tfoot,
+  Flex,
+  Link as BoemlyLink,
+} from 'boemly';
 import { TableWrapper } from '../TableWrapper';
 import { FOREST_DOCS_URI } from '../../constants/integrations';
 
@@ -35,7 +47,6 @@ export const OperationClass: React.FC<OperationClassProps> = ({
   listOfSpecies,
 }: OperationClassProps) => {
   const { formatNumber, formatMessage } = useContext(IntlContext);
-  const { ScrollArea, Root, Header, Body, ColumnHeader, Row, Cell, Footer } = Table;
 
   const areasInPercentPerSpecies = useMemo(() => getAreaInPercent(listOfSpecies), [listOfSpecies]);
   const areaInHectarePerSpecies: AreaInHectare[] = useMemo(() => {
@@ -75,47 +86,36 @@ export const OperationClass: React.FC<OperationClassProps> = ({
       </Flex>
 
       <TableWrapper>
-        <ScrollArea>
-          <Root>
-            <Header>
-              <Row>
-                <ColumnHeader></ColumnHeader>
-                <ColumnHeader>
-                  {formatMessage({ id: 'components.operationClass.yieldTable' })}
-                </ColumnHeader>
+        <TableContainer>
+          <Table>
+            <Thead>
+              <Tr>
+                <Th></Th>
+                <Th>{formatMessage({ id: 'components.operationClass.yieldTable' })}</Th>
                 {hasAreaInHectare && (
-                  <ColumnHeader>
-                    {formatMessage({ id: 'components.operationClass.areas' })}
-                  </ColumnHeader>
+                  <Th>{formatMessage({ id: 'components.operationClass.areas' })}</Th>
                 )}
-                <ColumnHeader>
-                  {formatMessage({ id: 'components.operationClass.distribution' })}
-                </ColumnHeader>
-                <ColumnHeader>
-                  {formatMessage({ id: 'components.operationClass.siteProductivity' })}
-                </ColumnHeader>
-                <ColumnHeader>
-                  {formatMessage({ id: 'components.operationClass.normalStock' })}
-                </ColumnHeader>
-              </Row>
-            </Header>
-            <Body>
+                <Th>{formatMessage({ id: 'components.operationClass.distribution' })}</Th>
+                <Th>{formatMessage({ id: 'components.operationClass.siteProductivity' })}</Th>
+                <Th>{formatMessage({ id: 'components.operationClass.normalStock' })}</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
               {listOfSpecies
                 .sort((speciesA, speciesB) => speciesA.title.localeCompare(speciesB.title))
                 .map((species, index) => (
-                  <Row key={index}>
-                    <Cell>{species.title}</Cell>
-                    <Cell>
+                  <Tr key={index}>
+                    <Td>{species.title}</Td>
+                    <Td>
                       <BoemlyLink
                         as="a"
                         href={`${FOREST_DOCS_URI}/yieldTables/${species.yieldTable}`}
-                        style={{ textDecoration: 'underline' }}
                       >
                         {yieldTables[species.yieldTable].meta.title}
                       </BoemlyLink>
-                    </Cell>
+                    </Td>
                     {hasAreaInHectare && (
-                      <Cell align="right">
+                      <Td align="right">
                         {formatMessage(
                           {
                             id: 'units.ha',
@@ -127,22 +127,22 @@ export const OperationClass: React.FC<OperationClassProps> = ({
                             }),
                           }
                         )}
-                      </Cell>
+                      </Td>
                     )}
-                    <Cell align="right">
+                    <Td align="right">
                       {formatNumber(areasInPercentPerSpecies[index].areaInPercent, {
                         style: 'percent',
                         minimumFractionDigits: 1,
                         maximumFractionDigits: 1,
                       })}
-                    </Cell>
-                    <Cell align="right">
+                    </Td>
+                    <Td align="right">
                       {formatNumber(species.siteProductivity, {
                         minimumFractionDigits: 1,
                         maximumFractionDigits: 1,
                       })}
-                    </Cell>
-                    <Cell align="right">
+                    </Td>
+                    <Td align="right">
                       {formatMessage(
                         {
                           id: 'units.vfmPerHa',
@@ -154,18 +154,16 @@ export const OperationClass: React.FC<OperationClassProps> = ({
                           }),
                         }
                       )}
-                    </Cell>
-                  </Row>
+                    </Td>
+                  </Tr>
                 ))}
-            </Body>
-            <Footer>
-              <Row>
-                <ColumnHeader>
-                  {formatMessage({ id: 'components.operationClass.total' })}
-                </ColumnHeader>
-                <ColumnHeader />
+            </Tbody>
+            <Tfoot>
+              <Tr>
+                <Th>{formatMessage({ id: 'components.operationClass.total' })}</Th>
+                <Th />
                 {hasAreaInHectare && (
-                  <ColumnHeader align="right">
+                  <Th align="right">
                     {formatMessage(
                       { id: 'units.ha' },
                       {
@@ -181,9 +179,9 @@ export const OperationClass: React.FC<OperationClassProps> = ({
                         ),
                       }
                     )}
-                  </ColumnHeader>
+                  </Th>
                 )}
-                <ColumnHeader align="right">
+                <Th align="right">
                   {formatNumber(
                     areasInPercentPerSpecies.reduce((sum, value) => sum + value.areaInPercent, 0),
                     {
@@ -192,9 +190,9 @@ export const OperationClass: React.FC<OperationClassProps> = ({
                       maximumFractionDigits: 1,
                     }
                   )}
-                </ColumnHeader>
-                <ColumnHeader />
-                <ColumnHeader align="right">
+                </Th>
+                <Th />
+                <Th align="right">
                   {formatMessage(
                     { id: 'units.vfmPerHa' },
                     {
@@ -208,11 +206,11 @@ export const OperationClass: React.FC<OperationClassProps> = ({
                       ),
                     }
                   )}
-                </ColumnHeader>
-              </Row>
-            </Footer>
-          </Root>
-        </ScrollArea>
+                </Th>
+              </Tr>
+            </Tfoot>
+          </Table>
+        </TableContainer>
       </TableWrapper>
     </>
   );
