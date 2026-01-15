@@ -4,9 +4,16 @@
   "version": "0.0.0-development",
   "license": "MIT",
   "author": "Tree.ly FlexCo",
-  "main": "dist/index.js",
+  "main": "dist/forest-management.esm.js",
   "module": "dist/forest-management.esm.js",
   "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/forest-management.esm.js",
+      "require": "./dist/forest-management.cjs.production.min.js"
+    }
+  },
   "files": [
     "dist",
     "src"
