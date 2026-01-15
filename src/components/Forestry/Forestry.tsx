@@ -4,7 +4,7 @@ import FeasibilityStudyConfig from '../../models/FeasibilityStudyConfig';
 import getNormalStock from '../../utils/getNormalStock';
 import yieldTables from '../../constants/yieldTables';
 import { IntlContext } from '../ForestManagementProvider';
-import { Table, TableContainer, Tbody, Td, Th, Thead, Tr, Tfoot } from 'boemly';
+import { Table } from 'boemly';
 import { TableWrapper } from '../TableWrapper';
 
 export interface ForestryProps {
@@ -13,6 +13,7 @@ export interface ForestryProps {
 
 export const Forestry = ({ config }: ForestryProps): JSX.Element => {
   const { formatNumber, formatMessage } = useContext(IntlContext);
+  const { ScrollArea, Root, Header, ColumnHeader, Body, Row, Cell, Footer } = Table;
 
   const operationClassWithAreaInPercent = useMemo(
     () => getAreaInPercent(config.operationClasses),
@@ -67,25 +68,31 @@ export const Forestry = ({ config }: ForestryProps): JSX.Element => {
 
   return (
     <TableWrapper>
-      <TableContainer>
-        <Table>
-          <Thead>
-            <Tr>
-              <Th>{formatMessage({ id: 'components.forestry.operationClass' })}</Th>
-              <Th>{formatMessage({ id: 'components.forestry.area' })}</Th>
-              <Th>{formatMessage({ id: 'components.forestry.areaDistribution' })}</Th>
-              <Th>{formatMessage({ id: 'components.forestry.normalStock' })}</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
+      <ScrollArea>
+        <Root>
+          <Header>
+            <Row>
+              <ColumnHeader>
+                {formatMessage({ id: 'components.forestry.operationClass' })}
+              </ColumnHeader>
+              <ColumnHeader>{formatMessage({ id: 'components.forestry.area' })}</ColumnHeader>
+              <ColumnHeader>
+                {formatMessage({ id: 'components.forestry.areaDistribution' })}
+              </ColumnHeader>
+              <ColumnHeader>
+                {formatMessage({ id: 'components.forestry.normalStock' })}
+              </ColumnHeader>
+            </Row>
+          </Header>
+          <Body>
             {config.operationClasses
               .sort((operationClassA, operationClassB) =>
                 operationClassA.name.localeCompare(operationClassB.name)
               )
               .map((operationClass, index) => (
-                <Tr key={index}>
-                  <Td>{operationClass.name}</Td>
-                  <Td align="right">
+                <Row key={index}>
+                  <Cell>{operationClass.name}</Cell>
+                  <Cell align="right">
                     {formatMessage(
                       {
                         id: 'units.ha',
@@ -97,15 +104,15 @@ export const Forestry = ({ config }: ForestryProps): JSX.Element => {
                         }),
                       }
                     )}
-                  </Td>
-                  <Td align="right">
+                  </Cell>
+                  <Cell align="right">
                     {formatNumber(operationClassWithAreaInPercent[index].areaInPercent, {
                       style: 'percent',
                       minimumFractionDigits: 1,
                       maximumFractionDigits: 1,
                     })}
-                  </Td>
-                  <Td align="right">
+                  </Cell>
+                  <Cell align="right">
                     {formatMessage(
                       { id: 'units.vfmPerHa' },
                       {
@@ -115,14 +122,14 @@ export const Forestry = ({ config }: ForestryProps): JSX.Element => {
                         }),
                       }
                     )}
-                  </Td>
-                </Tr>
+                  </Cell>
+                </Row>
               ))}
-          </Tbody>
-          <Tfoot>
-            <Tr>
-              <Th />
-              <Th>
+          </Body>
+          <Footer>
+            <Row>
+              <ColumnHeader />
+              <ColumnHeader>
                 {formatMessage(
                   { id: 'units.ha' },
                   {
@@ -132,15 +139,15 @@ export const Forestry = ({ config }: ForestryProps): JSX.Element => {
                     }),
                   }
                 )}
-              </Th>
-              <Th align="right">
+              </ColumnHeader>
+              <ColumnHeader align="right">
                 {formatNumber(totalAreaInPercent, {
                   style: 'percent',
                   minimumFractionDigits: 1,
                   maximumFractionDigits: 1,
                 })}
-              </Th>
-              <Th align="right">
+              </ColumnHeader>
+              <ColumnHeader align="right">
                 {formatMessage(
                   { id: 'units.vfmPerHa' },
                   {
@@ -150,11 +157,11 @@ export const Forestry = ({ config }: ForestryProps): JSX.Element => {
                     }),
                   }
                 )}
-              </Th>
-            </Tr>
-          </Tfoot>
-        </Table>
-      </TableContainer>
+              </ColumnHeader>
+            </Row>
+          </Footer>
+        </Root>
+      </ScrollArea>
     </TableWrapper>
   );
 };

@@ -1,5 +1,6 @@
 {
   "name": "@treely/forest-management",
+  "type": "module",
   "version": "0.0.0-development",
   "license": "MIT",
   "author": "Tree.ly FlexCo",
@@ -11,9 +12,9 @@
     "src"
   ],
   "scripts": {
-    "analyze": "size-limit --why",
+    "analyze": "size-limit",
     "build": "dts build",
-    "lint": "dts lint",
+    "lint": "dts lint src",
     "prepare": "dts build",
     "size": "size-limit",
     "start": "dts watch",
@@ -46,16 +47,16 @@
     ]
   },
   "engines": {
-    "node": ">=18 <=22"
+    "node": ">=22 <=24"
   },
   "size-limit": [
     {
       "path": "dist/forest-management.cjs.production.min.js",
-      "limit": "300 KB"
+      "limit": "50 KB"
     },
     {
       "path": "dist/forest-management.esm.js",
-      "limit": "100 KB"
+      "limit": "300 KB"
     }
   ],
   "description": "@treely/forest-management is a open source library maintained by Tree.ly.",
@@ -105,7 +106,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "boemly": "^7.0.0"
+    "boemly": "^10.0.2"
   },
   "peerDependencies": {
     "react": ">=18",
